@@ -3,7 +3,7 @@ import React from 'react';
 function BtnComponent() {
   return (
     <div>
-      <h1> BTN </h1>
+      <button className='stopwatch-btn-gre'>Start</button>
     </div>
   );
 }
