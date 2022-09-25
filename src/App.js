@@ -7,9 +7,13 @@ function App() {
   const [time, setTime] = useState({ms:0, s:0, m:0, h:0});
   const [interv, setInterv] = useState();
   const [status, setStatus] = useState(0);
+  // Not started = 0
+  // started = 1
+  // stopped = 2
 
   const start = () => {
     run();
+    setStatus(1);
     setInterv(setInterval(run, 10));
   }
 
@@ -31,12 +35,22 @@ function App() {
     updatedMs++;
     return setTime({ms:updatedMs, s:updatedS, m:updatedM, h:updatedH});
   };
+
+  const stop = () => {
+    clearInterval(interv);
+    setStatus(2);
+  }
+
+  const reset = () => {
+    run();
+    setInterv(setInterval(run, 10));
+  }
   return (
     <div className="main-section">
       <div className='clock-holder'>
           <div className='stopwatch'>
             <DisplayComponent time ={time}/>
-            <BtnComponent status={status} start={start}/>
+            <BtnComponent status={status} stop={stop} start={start}/>
           </div>
       </div>
     </div>
