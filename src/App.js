@@ -42,15 +42,17 @@ function App() {
   }
 
   const reset = () => {
-    run();
-    setInterv(setInterval(run, 10));
+    clearInterval(interv);
+    setStatus(0);
+    setTime({ms:0, s:0, m:0, h:0})
   }
+
   return (
     <div className="main-section">
       <div className='clock-holder'>
           <div className='stopwatch'>
             <DisplayComponent time ={time}/>
-            <BtnComponent status={status} stop={stop} start={start}/>
+            <BtnComponent status={status} stop={stop} reset={reset} start={start}/>
           </div>
       </div>
     </div>

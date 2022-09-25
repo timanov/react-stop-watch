@@ -13,7 +13,7 @@ function BtnComponent(props) {
             <button className='stopwatch-btn stopwatch-btn-red'
                     onClick={props.stop}>Stop</button>
              <button className='stopwatch-btn stopwatch-btn-yel'
-                    onClick={props.rest}>Reset</button>
+                    onClick={props.reset}>Reset</button>
           </div> : ""
       }
 
@@ -22,7 +22,7 @@ function BtnComponent(props) {
             <button className='stopwatch-btn stopwatch-btn-gre'
                     onClick={props.resume}>Resume</button>
              <button className='stopwatch-btn stopwatch-btn-yel'
-                    onClick={props.rest}>Reset</button>
+                    onClick={props.reset}>Reset</button>
           </div> : ""
       }
 
