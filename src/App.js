@@ -5,10 +5,12 @@ import './App.css';
 
 function App() {
   const [time, setTime] = useState({ms:0, s:0, m:0, h:0});
+  const [interv, setInterv] = useState();
+  const [status, setStatus] = useState(0);
 
   const start = () => {
     run();
-    setInterval(run, 10);
+    setInterv(setInterval(run, 10));
   }
 
   var updatedMs = time.ms, updatedS = time.s, updatedM = time.m, updatedH = time.h;
@@ -34,7 +36,7 @@ function App() {
       <div className='clock-holder'>
           <div className='stopwatch'>
             <DisplayComponent time ={time}/>
-            <BtnComponent start={start}/>
+            <BtnComponent status={status} start={start}/>
           </div>
       </div>
     </div>
